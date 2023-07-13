@@ -1,0 +1,24 @@
+.homeCardUpDateImg {
+    width: 498px;
+    height: 540px;
+    text-align: center;
+    line-height: 540px;
+    font-size: 28px;
+    background:
+        linear-gradient(to top, #565656, #565656) left top no-repeat,
+        linear-gradient(to right, #565656, #565656) left top no-repeat,
+        linear-gradient(to left, #565656, #565656) right top no-repeat,
+        linear-gradient(to bottom, #565656, #565656) right top no-repeat,
+        linear-gradient(to left, #565656, #565656) left bottom no-repeat,
+        linear-gradient(to bottom, #565656, #565656) left bottom no-repeat,
+        linear-gradient(to top, #565656, #565656) right bottom no-repeat,
+        linear-gradient(to left, #565656, #565656) right bottom no-repeat;
+    background-size: 5px 37px, 37px 5px, 5px 37px, 37px 5px;
+    background-color: transparent;
+    cursor: pointer;
+    .ant-upload.ant-upload-select-picture-card {
+        background-color: transparent;
+        
+    }
+}
+

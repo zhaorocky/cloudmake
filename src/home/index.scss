@@ -1,0 +1,151 @@
+.homeTitle {
+    font-family: Farsan;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-shadow: 0px 2px 4px 0px #686868C2;
+}
+.homeTips {
+    display: inline-block;
+    font-family: PingFang SC;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #686868;
+    padding: 12px 0;
+}
+
+.homeCard {
+    padding: 20px;
+    background: linear-gradient(134.17deg, #EEF0F5 3.47%, #E6E9EF 93.37%),
+        linear-gradient(132.16deg, #FEFEFF 25.14%, #C6CEDA 94.95%);
+    border: 1px solid;
+    border-image-source: linear-gradient(132.16deg, #FEFEFF 25.14%, #C6CEDA 94.95%);
+    box-shadow: 10px 10px 20px 0px #A6B4C8B2, -12px -12px 20px 0px #FFFFFFCC;
+    border-radius: 15px;
+}
+
+
+.home {
+    background: linear-gradient(rgb(237, 248, 247), rgb(233, 234, 245), rgb(244, 237, 232));
+    padding: 20px;
+
+    
+
+    
+
+    
+
+    .homeCardUpDateImg {
+        width: 498px;
+        height: 540px;
+        text-align: center;
+        line-height: 540px;
+        font-size: 28px;
+        background:
+            linear-gradient(to top, #565656, #565656) left top no-repeat,
+            linear-gradient(to right, #565656, #565656) left top no-repeat,
+            linear-gradient(to left, #565656, #565656) right top no-repeat,
+            linear-gradient(to bottom, #565656, #565656) right top no-repeat,
+            linear-gradient(to left, #565656, #565656) left bottom no-repeat,
+            linear-gradient(to bottom, #565656, #565656) left bottom no-repeat,
+            linear-gradient(to top, #565656, #565656) right bottom no-repeat,
+            linear-gradient(to left, #565656, #565656) right bottom no-repeat;
+        background-size: 5px 37px, 37px 5px, 5px 37px, 37px 5px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .homeCardSubmit {
+        width: 503px;
+        height: 62px;
+        border-radius: 15px;
+        border: none;
+        margin-top: 30px;
+        background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%),
+            linear-gradient(132.16deg, #FEFEFF 26.7%, #C6CEDA 96.52%);
+        box-shadow: 10px 10px 20px 0px #A6B4C8B2, -12px -12px 20px 0px #FFFFFFCC;
+
+    }
+
+    .btnWrapper {
+        --groove-left: 10px;
+        position: relative;
+        display: flex;
+        align-self: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 50px;
+        padding: 2px 6px;
+        border-radius: 5px; // 圆角
+        overflow: hidden; // 超出隐藏
+        background-color: #e2e6eb; // 背景色
+        box-shadow: -6px -6px 20px 0px #FFFFFFB2, 8px 8px 30px 0px #A6B4C8E5, 2px 2px 6px 0px #A6B4C8CC, -2px -2px 4px 0px #FFFFFF;
+
+    }
+
+    // .btnWrapper::before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 8px; // 同上
+    //     width: calc(30% - 12px);
+    //     height: calc(100% - 16px);
+    //     border-radius: 8px;
+    //     box-shadow: -2px -2px 2px #A6B4C8F7,
+    //         2px 2px 2px #E9ECF1, -6px -6px 20px transparent inset, 8px 8px 30px transparent inset;
+
+    //     /* ...其他属性 */
+    //     left: var(--groove-left);
+    //     /* ...其他属性 */
+    //     transition: left 1s cubic-bezier(0.82, 0.12, 0.18, 0.88);
+    // }
+
+    // .btnWrapper1 {
+    //     --groove-left: calc(2px + 30%);
+    // }
+
+
+    .btn {
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 30%;
+        height: 100%;
+        padding: inherit;
+        color: #686868;
+        cursor: pointer;
+        transition: color 0.4s linear;
+
+    }
+
+    .active {
+        --groove-left: 10px;
+        color: #111;
+        height: calc(100% - 16px);
+        border-radius: 8px;
+        margin-top: 8px;
+        box-shadow: -2px -2px 2px #A6B4C8F7,
+            2px 2px 2px #E9ECF1, -6px -6px 20px transparent inset, 8px 8px 30px transparent inset;
+    }
+
+    .homeContent {
+        .homeContentTitle {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #565656;
+            display: inline-block;
+            padding: 20px 0;
+        }
+
+
+    }
+
+}

@@ -1,0 +1,21 @@
+
+.invoiceInput {
+	width: 100%;
+	height: 100%;
+	background-color: #E9ECF1;
+	border-radius: 5px;
+	box-shadow: -2px -2px 2px #A6B4C8F7,
+		2px 2px 2px #E9ECF1, -6px -6px 20px transparent inset, 8px 8px 30px transparent inset;
+}
+
+.inputList {
+	min-width: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px 0;
+	.inputListItem {
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+
+}
