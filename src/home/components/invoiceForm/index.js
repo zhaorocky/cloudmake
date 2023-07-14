@@ -19,25 +19,25 @@ class BasicForm extends Component {
 					<Row gutter={60}>
 						<Col span={12}>
 							<FormItem label="发票号码" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="时间" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="地址" {...formItemLayout}>
 
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 
 						<Col span={12}>
 							<FormItem label="总金额" {...formItemLayout}>
 
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={24}>
@@ -47,13 +47,13 @@ class BasicForm extends Component {
 										minRows: 5,
 										maxRows: 6,
 									}}
-									className={style.invoiceInput}
+									className={"invoiceInput"}
 								/>
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="税点" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 					</Row>

@@ -18,53 +18,53 @@ class blForm extends Component {
 					<Row gutter={60}>
 						<Col span={12}>
 							<FormItem label="托运人" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="收货人" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="收货地点" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 
 						<Col span={12}>
 							<FormItem label="船舶名称" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="航次" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="收货地点" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="装货地点" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="卸货港" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="B/L 号码" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={12}>
 							<FormItem label="交货地点" {...formItemLayout}>
-								<Input className={style.invoiceInput} />
+								<Input className={"invoiceInput"} />
 							</FormItem>
 						</Col>
 						<Col span={24}>
@@ -74,7 +74,7 @@ class blForm extends Component {
 										minRows: 5,
 										maxRows: 6,
 									}}
-									className={style.invoiceInput}
+									className={"invoiceInput"}
 								/>
 							</FormItem>
 						</Col>

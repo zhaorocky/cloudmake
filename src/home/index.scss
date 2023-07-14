@@ -1,44 +1,40 @@
-.homeTitle {
-    font-family: Farsan;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 36px;
-    letter-spacing: 0em;
-    text-align: left;
-    text-shadow: 0px 2px 4px 0px #686868C2;
-}
-.homeTips {
-    display: inline-block;
-    font-family: PingFang SC;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #686868;
-    padding: 12px 0;
-}
-
-.homeCard {
-    padding: 20px;
-    background: linear-gradient(134.17deg, #EEF0F5 3.47%, #E6E9EF 93.37%),
-        linear-gradient(132.16deg, #FEFEFF 25.14%, #C6CEDA 94.95%);
-    border: 1px solid;
-    border-image-source: linear-gradient(132.16deg, #FEFEFF 25.14%, #C6CEDA 94.95%);
-    box-shadow: 10px 10px 20px 0px #A6B4C8B2, -12px -12px 20px 0px #FFFFFFCC;
-    border-radius: 15px;
-}
-
-
 .home {
     background: linear-gradient(rgb(237, 248, 247), rgb(233, 234, 245), rgb(244, 237, 232));
-    padding: 20px;
+    padding-top: 32px;
+    padding-left: 96px;
+    padding-right: 96px;
 
-    
+    .homeTitle {
+        font-family: Farsan;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: left;
+        text-shadow: 0px 2px 4px 0px #686868C2;
+    }
 
-    
+    .homeTips {
+        display: inline-block;
+        font-family: PingFang SC;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #686868;
+        padding: 12px 0;
+    }
 
-    
+    .homeCard {
+        padding: 20px;
+        background: linear-gradient(134.17deg, #EEF0F5 3.47%, #E6E9EF 93.37%),
+            linear-gradient(132.16deg, #FEFEFF 25.14%, #C6CEDA 94.95%);
+        border: 1px solid;
+        border-image-source: linear-gradient(132.16deg, #FEFEFF 25.14%, #C6CEDA 94.95%);
+        box-shadow: 10px 10px 20px 0px #A6B4C8B2, -12px -12px 20px 0px #FFFFFFCC;
+        border-radius: 15px;
+    }
 
     .homeCardUpDateImg {
         width: 498px;

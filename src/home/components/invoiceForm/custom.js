@@ -16,24 +16,24 @@ export default class App extends PureComponent {
 	render() {
 		return (
 			<div>
-				<ul className={style.inputList}>
+				<ul className={"inputList"}>
 					{
 						this.state.inputList.map((item, index) => {
 							return (
-								<li className={style.inputListItem}>
-									<Input className={style.invoiceInput} onPressEnter={(e) => this.pressEnter(e, index)} onChange={(e) => this.invoiceContent(e, index)} />
+								<li className={"inputListItem"}>
+									<Input className={"invoiceInput"} onPressEnter={(e) => this.pressEnter(e, index)} onChange={(e) => this.invoiceContent(e, index)} />
 								</li>
 							);
 						})
 					}
 					<li><button onClick={(e) => this.increFriend()}>+</button></li>
 				</ul>
-				<div className={style.inputList}>
+				<div className={"inputList"}>
 					{
 						this.state.contentList.map((item, index) => {
 							return (
-								<FormItem label={item.name} className={style.inputListItem}>
-									<Input className={style.invoiceInput} />
+								<FormItem label={item.name} className={"inputListItem"}>
+									<Input className={"invoiceInput"} />
 								</FormItem>
 							);
 						})
