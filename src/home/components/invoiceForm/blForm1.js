@@ -7,57 +7,34 @@ const FormItem = Form.Item;
 
 let labelList = [
 	{
-		title:"托运人",
-		label: 'shipper',
+		title:"税额",
+		label: 'tax',
 		span: 12,
 		value: ''
 	}, {
-		title:"收货人",
-		label: 'consignee',
+		title:"商户",
+		label: 'store',
 		span: 12,
 		value: ''
 	}, {
-		title:"收货地点",
-		label: 'receivingLocation',
+		title:"单号",
+		label: 'code',
 		span: 12,	
 		value: ''
 	}, {
-		title:"船舶名称",
-		label: 'vesselName',
+		title:"时间",
+		label: 'date',
 		span: 12,
 		value: ''
-	}, {
-		title:"航次",
-		label: 'voyage',
-		span: 12,
-		value: ''
-	},
-	{
-		title:'卸货港',
-		label: 'dischargingPort',
-		span: 12,
-		value: ''
-	},
-	{
-		title:'B/L号码',
-		label: 'B/Lnumber',
-		span: 12,
-		value: ''
-	},
-	{
-		title:'交货地点',
-		label: 'placeOfDelivery',
-		span: 12,
-		value: ''
-	},
-	{
-		title:'货物内容',
-		label: 'descriptionOfGoods',
+	},{
+		title:"金额",
+		label: 'amount',
 		span: 12,
 		value: ''
 	}
+	
 ]
-class blForm extends Component {
+class blForm1 extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -68,32 +45,33 @@ class blForm extends Component {
 		return (
 			<div>
 				<Form layout="vertical" style={{ width: '96%' }}>
-					<Row gutter={60} >
+					<Row gutter={60}>
 						{/* {labelList} */}
 						{
 							labelList.map(item => {
-								
-								if(item.label == '货物内容'){
-									return <Col span={item.span} className={"ant-form-item"}  >
-									<FormItem label={item.label} {...formItemLayout}>
-									 	<TextArea
-								 	    value={formData[item.title] || ''}
-								 		autoSize={{
-								 			minRows: 5,
-								 			maxRows: 6,
-								 		}}
-								 		className={"invoiceInput"}
-								 	/>
-									</FormItem>
-								</Col>
-
-								}
-
-								return <Col span={item.span}>
-									<FormItem label={item.title} {...formItemLayout}>
-										<Input className={"invoiceInput"} value={formData[item.label] || ''} />
-									</FormItem>
-								</Col>
+								// if(item.label == '货物内容'){
+								// 	return <Col span={item.span}>
+									
+								// 	<FormItem label={item.label} {...formItemLayout}>
+								// 	<TextArea
+								// 	    value={formData[item.label] || ''}
+								// 		autoSize={{
+								// 			minRows: 5,
+								// 			maxRows: 6,
+								// 		}}
+								// 		className={"invoiceInput"}
+								// 	/>
+										
+								// 	</FormItem>
+								// </Col>
+								// }else{
+										return <Col span={item.span}>
+										
+												<FormItem label={item.title} {...formItemLayout}>
+													<Input className={"invoiceInput"} value={formData[item.label] || ''} />
+												</FormItem>
+											</Col>
+								//}
 							})
 						}
 						{/* <Col span={12}>
@@ -165,4 +143,4 @@ class blForm extends Component {
 	}
 }
 
-export default Form.create({ name: 'blForm' })(blForm);
+export default Form.create({ name: 'blForm1' })(blForm1);

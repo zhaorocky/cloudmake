@@ -56,6 +56,17 @@
         cursor: pointer;
     }
 
+    .homeCardUpDateImgShow {
+        display: flex;
+        width: 498px;
+        height: 540px;
+        align-items: center;
+        justify-content: center;
+        .ant-upload  {
+        height: 540px;
+        }
+    }
+
     .homeCardSubmit {
         width: 503px;
         height: 62px;

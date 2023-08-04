@@ -16,10 +16,16 @@ function App() {
         <img 
         style={{
           marginLeft:"72px",
-          height:'32px',
-          width:'152px'
+          height:'51px',
+          width:'33px',
         }}
         src={require('./loho.png')}></img>
+        <img 
+        style={{
+          marginLeft:"8px",
+          height:'28px',
+        }}
+        src={require('./logot.png')}></img>
 
       </div>
       

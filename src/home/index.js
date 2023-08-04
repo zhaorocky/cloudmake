@@ -1,45 +1,26 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, Button, message, Upload } from 'antd';
-import InvoiceForm from './components/invoiceForm';
+import { Card, Col, Row, Button, message, Upload ,Spin} from 'antd';
 import BlForm from './components/invoiceForm/blForm';
+import BlForm1 from './components/invoiceForm/blForm1';
 import Custom from './components/invoiceForm/custom';
 import reqwest from 'reqwest';
 import './index.scss';
 
 
-const parmasList =[
-	{
-		"text": "",
-		"single": "托运人\n收货人\n收货地点\n船舶名称\n航次\n收货地点\n装货地点\n卸货港\nB/L号码\n交货地点\n货物内容",
-		"image": "",
-		"multiple": "",
-		"item": "",
-		"scene": "",
-		"instruction": "",
-		"max_length": 4096
-	},
-	{
-		"text": "",
-		"single": "税额\n商户\n单号\n时间\n金额",
-		"image": "",
-		"multiple": "",
-		"item": "",
-		"scene": "",
-		"instruction": "",
-		"max_length": 4096
-	}
-	// }, 
-	// {
-	// 	"text": "",
-	// 	"single": "自定义字段1\n自定义字段2\n自定义字段3",
-	// 	"image": "",
-	// 	"multiple": "",
-	// 	"item": "",
-	// 	"scene": "",
-	// 	"instruction": "",
-	// 	"max_length": 4096
-	// }
-]
+// const parmasList =[
+// 	{
+// 		"single": ["托运人","收货人","收货地点","船舶名称","航次","收货地点","装货地点","卸货港","B/L号码","交货地点","货物内容"],
+// 	},
+// 	{
+		
+// 		"single": ["税额","商户","单号","时间","金额"]
+	
+// 	},
+	
+// 	{
+// 		"single": [],
+// 	}
+// ]
 function getBase64(img, callback) {
 	const reader = new FileReader();
 	reader.addEventListener('load', () => callback(reader.result));
@@ -55,11 +36,28 @@ export default class Home extends Component {
 			tabs: [
 				{ tabName: 'Bill of Lading 海运套票', id: 0 },
 				{ tabName: 'Receipt 发票', id: 1 },
-				{ tabName: '自定义', id: 2 },
+				{ tabName: 'Customer', id: 2 }
 			],
 			currentIndex: 0,
-			imageUrl: ''
+			imageUrl: '',
+			blFormData:{},
+			loading: false,
+			customerParams: [],
+			parmasList :[
+				{
+					"single": ["shipper","consignee","receivingLocation","vesselName","voyage","dischargingPort","B/Lnumber","placeOfDelivery","descriptionOfGoods"],
+				},
+				{
+					
+					"single": ["tax","store","code","date","amount"]
+				}
+			]
 		};
+	}
+
+	changeParamsList = (params) =>{
+		this.setState({customerParams : params});
+		console.log("params",this.state.customerParams);
 	}
 
 	changeLight(type = 0) {
@@ -102,6 +100,7 @@ export default class Home extends Component {
 		});
 
 
+
 		const { imageUrl } = this.state;
 
 		const formData = new FormData();
@@ -120,32 +119,63 @@ export default class Home extends Component {
 			}
 			
 			formData.append('file', file);
-			formData.append('billJson',JSON.stringify(parmasList[currentIndex]));
-			console.log(formData,'formData');
+
+			if(currentIndex == 2){
+				formData.append('billJson',JSON.stringify({"single":this.state.customerParams}));
+			}else{
+				formData.append('billJson',JSON.stringify(this.state.parmasList[currentIndex]));
+			}
+			
+		
+		
+			reqwest({
+				url: 'http://1.116.37.178:8090/api/ie',
+				method: 'post',
+				headers: {
+					Accept: 'application/json',
+				},
+				processData: false,
+				data: formData,
+				success: (response) => {
+					getBase64(file, imageUrl =>
+						this.setState({
+						 imageUrl,
+						 loading: false,
+						}),
+					   );
+
+					if(response.resultCode == 200 ){
+						const re  = JSON.parse(response.data)
+						if(re.code == 200){
+							this.setState({blFormData:re.result
+							});
+							message.success('upload successfully.');
+						}else{
+							message.error(re.message);
+						}
+						
+						
+					}else{
+						message.error(response.errorMsg);
+					}   
+					
+				  	
+				},
+				error: () => {
+				  message.error('upload failed.');
+				},
+				onFinish: ()=>{
+					message.error('onfinish');
+				},
+				complete: () => {
+					
+				},
+			  });
+		
 			
 		}
 
-		// const parserFile =() => {
-		// 	reqwest({
-		// 		url: 'http://1.116.37.178:8090/api/ie',
-		// 		method: 'post',
-		// 		headers: {
-		// 			Accept: 'application/json',
-		// 		},
-		// 		processData: false,
-		// 		data: formData,
-		// 		success: (data) => {
-		// 			console.log(data);
-		// 		  message.success('upload successfully.');
-		// 		},
-		// 		error: () => {
-		// 		  message.error('upload failed.');
-		// 		},
-		// 		onFinish: ()=>{
-		// 			message.error('onfinish');
-		// 		}
-		// 	  });
-		// }
+		
 
 		const uploadButton = (
 			<div>
@@ -158,6 +188,11 @@ export default class Home extends Component {
 		);
 		return (
 			<div className={"home"}>
+
+				<Spin spinning={this.state.loading}>
+
+				
+
 				<div className={"homeTitle"}>通用票据识别</div>
 				<span className={"homeTips"}>支持对多种票据类型（多票据）进行票据切分、票据分类、票据识别，同时可对多种票据检测以及关键信息提取，不限票据类型</span>
 				<Card className={"homeCard"} bordered={false}>
@@ -165,9 +200,8 @@ export default class Home extends Component {
 
 						<Col span={12}>
 							<Upload
-								name="avatar"
-								listType="picture-card"
-								className="avatar-uploader"
+							
+								className="homeCardUpDateImgShow"
 								showUploadList={false}
 								beforeUpload={beforeUpload}
 								onChange={this.handleChange}
@@ -185,7 +219,16 @@ export default class Home extends Component {
 									uploadButton
 								)}
 							</Upload>
-							<Button htmlType="submit" onClick={parserFile()} className={"homeCardSubmit"}>Parse a file</Button>
+							<Upload
+							
+								className="homeCardUpDateImgShow"
+								showUploadList={false}
+								beforeUpload={beforeUpload}
+								onChange={this.handleChange}
+							>
+								<Button htmlType="submit"  className={"homeCardSubmit"}>Parse a file</Button>
+							</Upload>
+							
 
 						</Col>
 						<Col span={12}>
@@ -193,20 +236,24 @@ export default class Home extends Component {
 								{tabList}
 							</div>
 							<div className={"homeContent"}>
-								<span className={"homeContentTitle"}>内容输出</span>
+								
 								<div style={{ display: isBox1Show }}>
-									<BlForm />
+								<span className={"homeContentTitle"}>内容输出</span>
+									<BlForm formData={this.state.blFormData}/>
 								</div>
 								<div style={{ display: isbox2Show }}>
-									<InvoiceForm />
+								<span className={"homeContentTitle"}>内容输出</span>
+									<BlForm1 formData={this.state.blFormData} />
 								</div>
-								{/* <div style={{ display: isbox3Show }}>
-									<Custom></Custom>
-								</div> */}
+								{ <div style={{ display: isbox3Show }}>
+								<span className={"homeContentTitle"}>自定义</span>
+									<Custom formData={this.state.blFormData} changeParamsList = {this.changeParamsList} ></Custom>
+								</div> }
 							</div>
 						</Col>
 					</Row>
 				</Card>
+				</Spin>
 			</div >
 		);
 	}

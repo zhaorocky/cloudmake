@@ -90,13 +90,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function (webpackEnv) {
-  app.use(
-    '/api',
-    createProxyMiddleware({
-      target: 'http://1.116.37.178:8090',
-      changeOrigin: true,
-    })
-  );
+  
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
